@@ -206,6 +206,7 @@ public partial class PosView : UserControl
 
     private void Cart_CollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
     {
+        if (TxtCartEmpty == null || TxtCartCount == null) return;
         RecalculateTotals();
         TxtCartEmpty.Visibility = _cart.Count == 0 ? Visibility.Visible : Visibility.Collapsed;
         TxtCartCount.Text = _cart.Count > 0 ? $"({_cart.Sum(c => c.Quantity):0.##} items)" : "";
@@ -227,6 +228,8 @@ public partial class PosView : UserControl
 
     private void RecalculateTotals()
     {
+        if (TxtSubtotal == null || TxtGrandTotal == null || TxtChargeAmount == null) return;
+
         if (_cart.Count == 0)
         {
             TxtSubtotal.Text = $"{_currencySymbol}0.00";
