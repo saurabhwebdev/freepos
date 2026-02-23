@@ -212,13 +212,16 @@ public partial class PosView : UserControl
         TxtCartCount.Text = _cart.Count > 0 ? $"({_cart.Sum(c => c.Quantity):0.##} items)" : "";
     }
 
+    private bool _isPercentDiscount;
+
     private void ClearCart()
     {
         _cart.Clear();
         TxtCustomerName.Text = "";
         TxtDiscountValue.Text = "0";
         TxtAmountTendered.Text = "";
-        ToggleDiscountType.IsChecked = false;
+        _isPercentDiscount = false;
+        UpdateDiscountButtons();
         RecalculateTotals();
     }
 
@@ -243,7 +246,7 @@ public partial class PosView : UserControl
         decimal subtotal = _cart.Sum(c => c.LineSubtotal);
 
         // Discount
-        bool isPercent = ToggleDiscountType.IsChecked == true;
+        bool isPercent = _isPercentDiscount;
         decimal discountValue = decimal.TryParse(TxtDiscountValue.Text, out var dv) ? dv : 0;
         decimal discountAmount = isPercent ? (subtotal * discountValue / 100) : discountValue;
         if (discountAmount > subtotal) discountAmount = subtotal;
@@ -306,7 +309,40 @@ public partial class PosView : UserControl
     }
 
     private void Discount_Changed(object sender, TextChangedEventArgs e) => RecalculateTotals();
-    private void DiscountType_Changed(object sender, RoutedEventArgs e) => RecalculateTotals();
+
+    private void BtnDiscountFixed_Click(object sender, RoutedEventArgs e)
+    {
+        _isPercentDiscount = false;
+        UpdateDiscountButtons();
+        RecalculateTotals();
+    }
+
+    private void BtnDiscountPercent_Click(object sender, RoutedEventArgs e)
+    {
+        _isPercentDiscount = true;
+        UpdateDiscountButtons();
+        RecalculateTotals();
+    }
+
+    private void UpdateDiscountButtons()
+    {
+        if (BtnDiscountFixed == null || BtnDiscountPercent == null) return;
+
+        if (_isPercentDiscount)
+        {
+            BtnDiscountPercent.Background = (Brush)FindResource("PrimaryHueLightBrush");
+            BtnDiscountPercent.Foreground = Brushes.White;
+            BtnDiscountFixed.ClearValue(Button.BackgroundProperty);
+            BtnDiscountFixed.ClearValue(Button.ForegroundProperty);
+        }
+        else
+        {
+            BtnDiscountFixed.Background = (Brush)FindResource("PrimaryHueLightBrush");
+            BtnDiscountFixed.Foreground = Brushes.White;
+            BtnDiscountPercent.ClearValue(Button.BackgroundProperty);
+            BtnDiscountPercent.ClearValue(Button.ForegroundProperty);
+        }
+    }
 
     private void PaymentMethod_Changed(object sender, RoutedEventArgs e)
     {
@@ -433,7 +469,7 @@ public partial class PosView : UserControl
     private Invoice BuildInvoice(string status)
     {
         decimal subtotal = _cart.Sum(c => c.LineSubtotal);
-        bool isPercent = ToggleDiscountType.IsChecked == true;
+        bool isPercent = _isPercentDiscount;
         decimal discountValue = decimal.TryParse(TxtDiscountValue.Text, out var dv) ? dv : 0;
         decimal discountAmount = isPercent ? (subtotal * discountValue / 100) : discountValue;
         if (discountAmount > subtotal) discountAmount = subtotal;

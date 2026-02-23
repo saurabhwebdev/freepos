@@ -175,5 +175,38 @@ public static class SalesService
         }
     }
 
+    public static async Task<List<Invoice>> SearchInvoicesAsync(
+        int tenantId, DateTime? fromDate, DateTime? toDate,
+        string? status = null, string? search = null, int limit = 200)
+    {
+        var sql = @"SELECT i.*, u.full_name as created_by_name,
+                    (SELECT COUNT(*) FROM invoice_items WHERE invoice_id = i.id) as item_count
+                    FROM invoices i
+                    LEFT JOIN users u ON i.created_by = u.id
+                    WHERE i.tenant_id = @TenantId";
+
+        if (fromDate.HasValue)
+            sql += " AND i.created_at >= @FromDate";
+        if (toDate.HasValue)
+            sql += " AND i.created_at < @ToDateExclusive";
+        if (!string.IsNullOrEmpty(status) && status != "ALL")
+            sql += " AND i.status = @Status";
+        if (!string.IsNullOrEmpty(search))
+            sql += " AND (LOWER(i.invoice_number) LIKE @Search OR LOWER(i.customer_name) LIKE @Search)";
+
+        sql += " ORDER BY i.created_at DESC LIMIT @Limit";
+
+        var results = await DatabaseHelper.QueryAsync<Invoice>(sql, new
+        {
+            TenantId = tenantId,
+            FromDate = fromDate,
+            ToDateExclusive = toDate?.Date.AddDays(1),
+            Status = status,
+            Search = !string.IsNullOrEmpty(search) ? $"%{search.ToLower()}%" : null,
+            Limit = limit
+        });
+        return results.ToList();
+    }
+
     #endregion
 }

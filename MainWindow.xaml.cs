@@ -11,6 +11,7 @@ namespace MyWinFormsApp;
 public partial class MainWindow : Window
 {
     private readonly PosView _posView = new();
+    private readonly InvoicesView _invoicesView = new();
     private readonly InventoryView _inventoryView = new();
     private readonly DataManagementView _dataManagementView = new();
     private ProfileView? _profileView;
@@ -65,12 +66,17 @@ public partial class MainWindow : Window
         ContentArea.Content = NavList.SelectedIndex switch
         {
             0 => _posView,
-            1 => _inventoryView,
-            2 => _dataManagementView,
-            3 => _profileView ??= new ProfileView(),
-            4 => _settingsView,
+            1 => _invoicesView,
+            2 => _inventoryView,
+            3 => _dataManagementView,
+            4 => _profileView ??= new ProfileView(),
+            5 => _settingsView,
             _ => _posView
         };
+
+        // Refresh invoices when navigating to that tab
+        if (NavList.SelectedIndex == 1)
+            _ = _invoicesView.LoadAsync();
     }
 
     private void BtnToggleNav_Click(object sender, RoutedEventArgs e)
@@ -90,6 +96,7 @@ public partial class MainWindow : Window
 
         var textVisibility = _isNavExpanded ? Visibility.Visible : Visibility.Collapsed;
         NavTextPos.Visibility = textVisibility;
+        NavTextInvoices.Visibility = textVisibility;
         NavTextInventory.Visibility = textVisibility;
         NavTextData.Visibility = textVisibility;
         NavTextProfile.Visibility = textVisibility;
