@@ -16,12 +16,12 @@
 </p>
 
 <p>
-  <strong>16,800+ lines of code</strong> &nbsp;·&nbsp; <strong>25 data models</strong> &nbsp;·&nbsp; <strong>15 services</strong> &nbsp;·&nbsp; <strong>34 views</strong> &nbsp;·&nbsp; <strong>22+ database tables</strong>
+  <strong>16,800+ lines of code</strong> &middot; <strong>25 data models</strong> &middot; <strong>15 services</strong> &middot; <strong>34 views</strong> &middot; <strong>22+ database tables</strong>
 </p>
 
 <br />
 
-[Features](#-features) · [Quick Start](#-quick-start) · [Architecture](#-architecture) · [Database](#-database-schema) · [Configuration](#-configuration) · [PDF Reports](#-pdf-reports) · [Installation](#-installation) · [Contributing](#-contributing)
+[Features](#features) &middot; [Quick Start](#quick-start) &middot; [Architecture](#architecture) &middot; [Database](#database-schema) &middot; [Configuration](#configuration) &middot; [PDF Reports](#pdf-reports) &middot; [Installation](#installation) &middot; [Contributing](#contributing)
 
 <br />
 
@@ -29,64 +29,64 @@
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
-- [Overview](#-overview)
-- [Features](#-features)
-  - [Point of Sale](#-point-of-sale)
-  - [Invoice Management](#-invoice-management)
-  - [Inventory Management](#-inventory-management)
-  - [Customer Management](#-customer-management)
-  - [Purchase Orders](#-purchase-orders)
-  - [Returns & Credit Notes](#-returns--credit-notes)
-  - [Reports & Analytics](#-reports--analytics)
-  - [Settings & Configuration](#%EF%B8%8F-settings--configuration)
-  - [Thermal Printing](#-thermal-printing)
-  - [Keyboard Shortcuts](#%EF%B8%8F-keyboard-shortcuts)
-  - [Offline Mode](#-offline-mode)
-- [Tech Stack](#-tech-stack)
-- [Quick Start](#-quick-start)
-- [Architecture](#-architecture)
+- [Overview](#overview)
+- [Features](#features)
+  - [Point of Sale](#point-of-sale)
+  - [Invoice Management](#invoice-management)
+  - [Inventory Management](#inventory-management)
+  - [Customer Management](#customer-management)
+  - [Purchase Orders](#purchase-orders)
+  - [Returns and Credit Notes](#returns-and-credit-notes)
+  - [Reports and Analytics](#reports-and-analytics)
+  - [Settings and Configuration](#settings-and-configuration)
+  - [Thermal Printing](#thermal-printing)
+  - [Keyboard Shortcuts](#keyboard-shortcuts)
+  - [Offline Mode](#offline-mode)
+- [Tech Stack](#tech-stack)
+- [Quick Start](#quick-start)
+- [Architecture](#architecture)
   - [Project Structure](#project-structure)
   - [Multi-Tenant Architecture](#multi-tenant-architecture)
   - [Data Flow](#data-flow)
   - [Service Layer](#service-layer)
   - [Model Layer](#model-layer)
-- [Database Schema](#-database-schema)
-- [Configuration](#-configuration)
-- [PDF Reports](#-pdf-reports)
-- [Excel Import](#-excel-import)
-- [Installation](#-installation)
-- [Troubleshooting](#-troubleshooting)
-- [Contributing](#-contributing)
-- [License](#-license)
+- [Database Schema](#database-schema)
+- [Configuration](#configuration)
+- [PDF Reports](#pdf-reports)
+- [Excel Import](#excel-import)
+- [Installation](#installation)
+- [Troubleshooting](#troubleshooting)
+- [Contributing](#contributing)
+- [License](#license)
 
 ---
 
-## 🌟 Overview
+## Overview
 
-**OpenPOS** is a professional-grade, open-source desktop Point of Sale application built for retail businesses, shops, restaurants, and small enterprises. It delivers a **complete business management solution** — from processing sales to managing inventory, tracking suppliers, handling tax compliance, generating PDF reports, emailing invoices, and importing data from Excel.
+**OpenPOS** is a professional-grade, open-source desktop Point of Sale application built for retail businesses, shops, restaurants, and small enterprises. It delivers a complete business management solution — from processing sales to managing inventory, tracking suppliers, handling tax compliance, generating PDF reports, emailing invoices, and importing data from Excel.
 
 ### Why OpenPOS?
 
-| | Feature | Description |
-|---|---------|-------------|
-| 🏪 | **Multi-Shop Support** | Run multiple businesses from a single installation with complete data isolation |
-| 🔒 | **Role-Based Access** | Fine-grained permissions — Admins see everything, Cashiers see only what they need |
-| 🇮🇳 | **Tax Compliant** | Built-in GST support with CGST/SGST split, HSN codes, and multi-rate tax slabs |
-| 📄 | **Professional PDFs** | Invoice PDFs with UPI QR codes, bank details, tax breakdowns, and business branding |
-| 📧 | **Email Integration** | Send invoices and reports via Gmail, Outlook, Yahoo, or custom SMTP |
-| 🖨️ | **Thermal Printing** | Direct ESC/POS thermal receipt printing for 58mm and 80mm printers |
-| 📊 | **7 Report Types** | From daily sales to consolidated multi-page business reports |
-| 📥 | **Excel Import** | Bulk import products, categories, and suppliers from .xlsx files |
-| ⌨️ | **Keyboard Shortcuts** | F1-F6 navigation, fast checkout workflows |
-| 🔌 | **Offline Resilient** | Graceful handling when database connectivity is lost |
+| Feature | Description |
+|---------|-------------|
+| **Multi-Shop Support** | Run multiple businesses from a single installation with complete data isolation |
+| **Role-Based Access** | Fine-grained permissions — Admins see everything, Cashiers see only what they need |
+| **Tax Compliant** | Built-in GST support with CGST/SGST split, HSN codes, and multi-rate tax slabs |
+| **Professional PDFs** | Invoice PDFs with UPI QR codes, bank details, tax breakdowns, and business branding |
+| **Email Integration** | Send invoices and reports via Gmail, Outlook, Yahoo, or custom SMTP |
+| **Thermal Printing** | Direct ESC/POS thermal receipt printing for 58mm and 80mm printers |
+| **7 Report Types** | From daily sales to consolidated multi-page business reports |
+| **Excel Import** | Bulk import products, categories, and suppliers from .xlsx files |
+| **Keyboard Shortcuts** | F1-F6 navigation, fast checkout workflows |
+| **Offline Resilient** | Graceful handling when database connectivity is lost |
 
 ---
 
-## ✨ Features
+## Features
 
-### 🛒 Point of Sale
+### Point of Sale
 
 The POS screen is the heart of OpenPOS — designed for speed and efficiency.
 
@@ -97,14 +97,14 @@ The POS screen is the heart of OpenPOS — designed for speed and efficiency.
 | **Category Navigation** | Horizontal scrolling pill buttons for quick category filtering |
 | **Cart Management** | Add, adjust quantity, remove items with live total calculation |
 | **Customer Lookup** | Optional customer name/selection per transaction |
-| **Discount Support** | Fixed amount (`₹50 off`) or percentage-based (`10% off`) discounts |
+| **Discount Support** | Fixed amount or percentage-based discounts |
 | **Tax Calculation** | Automatic tax from configurable slabs — supports GST with CGST/SGST split |
 | **Multiple Payments** | Cash (with tendered/change), UPI, and Card payment methods |
 | **UPI QR Code** | Auto-generated UPI payment QR with pre-filled amount at checkout |
-| **Hold & Resume** | Pause a transaction, serve another customer, then resume |
+| **Hold and Resume** | Pause a transaction, serve another customer, then resume |
 | **Invoice Generation** | Auto-incrementing invoice numbers with configurable prefix (e.g., `INV-000042`) |
 
-### 📑 Invoice Management
+### Invoice Management
 
 | Feature | Details |
 |---------|---------|
@@ -125,7 +125,7 @@ The POS screen is the heart of OpenPOS — designed for speed and efficiency.
 - UPI QR code with pre-filled payment amount
 - Configurable footer text
 
-### 📦 Inventory Management
+### Inventory Management
 
 OpenPOS provides a tabbed inventory management interface with **9 sub-modules**:
 
@@ -167,7 +167,7 @@ OpenPOS provides a tabbed inventory management interface with **9 sub-modules**:
 - Movement history with type-colored badges (green=IN, red=OUT, yellow=ADJUST)
 - Full stock movement log with previous/new stock values
 
-### 👥 Customer Management
+### Customer Management
 
 | Feature | Details |
 |---------|---------|
@@ -178,20 +178,20 @@ OpenPOS provides a tabbed inventory management interface with **9 sub-modules**:
 | **Notes** | Free-text notes per customer |
 | **Link to Sales** | Associate customers with invoices |
 
-### 📋 Purchase Orders
+### Purchase Orders
 
 | Feature | Details |
 |---------|---------|
 | **Create PO** | Select supplier, expected date, add items with auto tax calculation |
 | **Tax from Products** | Each item auto-picks tax rate from product's configured tax slab |
-| **Status Workflow** | Draft → Ordered → Partially Received → Received / Cancelled |
+| **Status Workflow** | Draft > Ordered > Partially Received > Received / Cancelled |
 | **PO Detail View** | Click any PO to see full breakdown with items, tax, and totals |
 | **Download PDF** | Professional PO PDF with supplier info, items table, tax column, totals |
 | **Email to Supplier** | Send PO PDF via email — auto-fills supplier email address |
 | **Mark as Ordered** | One-click status update from Draft to Ordered |
 | **Stock Receiving** | Receive items and auto-update product stock with movement records |
 
-### 🔄 Returns & Credit Notes
+### Returns and Credit Notes
 
 | Feature | Details |
 |---------|---------|
@@ -201,30 +201,30 @@ OpenPOS provides a tabbed inventory management interface with **9 sub-modules**:
 | **Stock Restoration** | Returned items automatically added back to inventory |
 | **Movement Tracking** | Stock movements recorded with reference to credit note |
 
-### 📊 Reports & Analytics
+### Reports and Analytics
 
 **7 report types** with PDF export and email capabilities:
 
 | Report | Description | Format |
 |--------|-------------|--------|
-| 📈 **Daily Sales** | All transactions for a specific date with revenue, tax, discount totals | A4 Portrait |
-| 📊 **Sales Summary** | Aggregated sales for date range with payment method breakdown (Cash/UPI/Card) | A4 Portrait |
-| 🏷️ **Product Sales** | Product-wise analysis — quantity sold, revenue, tax collected per product | A4 Portrait |
-| 📦 **Inventory Report** | Complete stock overview with values, cost prices, categories, suppliers | A4 Landscape |
-| ⚠️ **Low Stock Alert** | Products below minimum threshold with deficit calculations | A4 Portrait |
-| 🧾 **Tax Collection** | Tax slab-wise collection grouped by rate — taxable amount + tax collected | A4 Portrait |
-| 📑 **Consolidated** | All-in-one multi-page report: summary + invoices + products + tax + inventory + low stock + invoice copies | Multi-page A4 |
+| **Daily Sales** | All transactions for a specific date with revenue, tax, discount totals | A4 Portrait |
+| **Sales Summary** | Aggregated sales for date range with payment method breakdown (Cash/UPI/Card) | A4 Portrait |
+| **Product Sales** | Product-wise analysis — quantity sold, revenue, tax collected per product | A4 Portrait |
+| **Inventory Report** | Complete stock overview with values, cost prices, categories, suppliers | A4 Landscape |
+| **Low Stock Alert** | Products below minimum threshold with deficit calculations | A4 Portrait |
+| **Tax Collection** | Tax slab-wise collection grouped by rate — taxable amount + tax collected | A4 Portrait |
+| **Consolidated** | All-in-one multi-page report: summary + invoices + products + tax + inventory + low stock + invoice copies | Multi-page A4 |
 
 **Report Features:**
-- 📅 Custom date range with quick selectors (Today, This Week, This Month)
-- 📄 Professional PDF formatting with business branding
-- 📧 Email any report as a PDF attachment
-- 📂 Auto-saves to `~/Downloads` folder
-- 🖥️ Auto-opens generated PDF in default viewer
+- Custom date range with quick selectors (Today, This Week, This Month)
+- Professional PDF formatting with business branding
+- Email any report as a PDF attachment
+- Auto-saves to `~/Downloads` folder
+- Auto-opens generated PDF in default viewer
 
-### ⚙️ Settings & Configuration
+### Settings and Configuration
 
-#### 🏢 Business Details
+#### Business Details
 Configure your complete business profile:
 - Company name, type, owner name
 - Contact: email, phone, website
@@ -235,13 +235,13 @@ Configure your complete business profile:
 - UPI: UPI ID + display name for QR code generation
 - Invoice prefix + custom footer text
 
-#### 🧾 Tax Configuration
+#### Tax Configuration
 - Create tax slabs with name, rate, and type
-- **Component taxes**: Split tax into sub-components (e.g., GST → CGST 9% + SGST 9%)
+- **Component taxes**: Split tax into sub-components (e.g., GST into CGST 9% + SGST 9%)
 - Country-specific support
 - Pre-seeded defaults for India (0%, 5%, 12%, 18%, 28%), USA, UK, Canada, Australia
 
-#### 👤 Roles & Access Control
+#### Roles and Access Control
 | Role | Default Access |
 |------|---------------|
 | **Admin** | Full access to all modules |
@@ -251,26 +251,26 @@ Configure your complete business profile:
 - Add/remove users from shop
 - Invite users by email
 
-#### 📧 Email Settings
+#### Email Settings
 - **One-click presets**: Gmail, Outlook, Yahoo
 - **Custom SMTP**: host, port, SSL/TLS toggle
 - Sender name + email + app password
 - Test email verification
 - Enable/disable toggle
 
-#### 💳 Payment Gateway Settings
+#### Payment Gateway Settings
 Supports 8 payment gateways:
 - Stripe, PayPal, Razorpay, Paytm, PhonePe, Square, Instamojo, Cashfree
 - API key, secret, merchant ID, webhook secret
 - Test/Live mode toggle
 - Gateway-specific currency
 
-#### 💾 Backup & Restore
+#### Backup and Restore
 - Export full database backup as `.sql` file
 - Restore from backup file
 - Timestamped backup filenames (`openpos_backup_20260224_143022.sql`)
 
-### 🖨️ Thermal Printing
+### Thermal Printing
 
 Direct ESC/POS receipt printing to thermal printers:
 
@@ -284,7 +284,7 @@ Direct ESC/POS receipt printing to thermal printers:
 
 **ESC/POS commands supported:** Initialize, Center/Left align, Bold on/off, Double height, Double width, Line feed, Paper cut.
 
-### ⌨️ Keyboard Shortcuts
+### Keyboard Shortcuts
 
 | Shortcut | Action |
 |----------|--------|
@@ -296,7 +296,7 @@ Direct ESC/POS receipt printing to thermal printers:
 | `F6` | Navigate to Profile |
 | `Escape` | Close current modal / dialog |
 
-### 🔌 Offline Mode
+### Offline Mode
 
 OpenPOS handles database connectivity issues gracefully:
 - **Connection monitoring** — tracks database connection state
@@ -306,7 +306,7 @@ OpenPOS handles database connectivity issues gracefully:
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 | Layer | Technology | Version | Purpose |
 |-------|-----------|---------|---------|
@@ -325,7 +325,7 @@ OpenPOS handles database connectivity issues gracefully:
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -376,10 +376,10 @@ dotnet run
 ### 5. First-time setup
 
 1. **Register** — Create a new account (first user gets Admin role)
-2. **Business Details** — Go to Settings → Business Details and fill in your company info
-3. **Tax Slabs** — Go to Settings → Tax and verify/customize tax rates
-4. **Add Products** — Go to Inventory → Products and add your catalog (or bulk import from Excel)
-5. **Start Selling** — Navigate to POS and process your first sale!
+2. **Business Details** — Go to Settings > Business Details and fill in your company info
+3. **Tax Slabs** — Go to Settings > Tax and verify/customize tax rates
+4. **Add Products** — Go to Inventory > Products and add your catalog (or bulk import from Excel)
+5. **Start Selling** — Navigate to POS and process your first sale
 
 ### Build for Production
 
@@ -390,104 +390,104 @@ dotnet publish -c Release -r win-x64 --self-contained true
 
 ---
 
-## 🏗 Architecture
+## Architecture
 
 ### Project Structure
 
 ```
 openpos/
-│
-├── 📁 Models/                          # 25 data model classes
-│   ├── 🔐 User.cs                     # User accounts
-│   ├── 🏪 Tenant.cs                   # Business/shop entities
-│   ├── 👤 UserTenant.cs               # User-shop-role mapping
-│   ├── 🛡️ Role.cs                     # Role definitions
-│   ├── 🔑 RolePermission.cs           # Module permissions
-│   ├── 📦 Module.cs                   # Application modules
-│   ├── 🏢 BusinessDetails.cs          # Business profile + banking + UPI
-│   ├── 🏷️ Category.cs                 # Product categories
-│   ├── 📏 Unit.cs                     # Units of measurement
-│   ├── 🏭 Supplier.cs                 # Supplier directory
-│   ├── 🧾 TaxSlab.cs                  # Tax rates with components
-│   ├── 📦 Product.cs                  # Product catalog
-│   ├── 🧾 Invoice.cs                  # Sales transactions
-│   ├── 📋 InvoiceItem.cs              # Invoice line items
-│   ├── 🛒 CartItem.cs                 # POS cart (INotifyPropertyChanged)
-│   ├── 📊 StockMovement.cs            # Stock audit trail
-│   ├── 👥 Customer.cs                 # Customer database
-│   ├── 📋 PurchaseOrder.cs            # Purchase orders
-│   ├── 📋 PurchaseOrderItem.cs        # PO line items
-│   ├── 🔄 CreditNote.cs              # Return credit notes
-│   ├── 🔄 CreditNoteItem.cs          # Credit note line items
-│   ├── 📧 EmailSettings.cs            # SMTP configuration
-│   └── 💳 PaymentGatewaySettings.cs   # Payment gateway config
-│
-├── 📁 Services/                        # 15 static service classes
-│   ├── 🔐 AuthService.cs              # Login, register, session management
-│   ├── 🛡️ RoleService.cs              # Roles, permissions, user management
-│   ├── 🏢 BusinessService.cs          # Business details CRUD
-│   ├── 📦 InventoryService.cs         # Products, categories, units, suppliers, stock
-│   ├── 🧾 TaxService.cs              # Tax slab management + country defaults
-│   ├── 💰 SalesService.cs            # Invoicing, hold/resume, cancellation
-│   ├── 👥 CustomerService.cs          # Customer CRUD + search
-│   ├── 📋 PurchaseOrderService.cs     # PO lifecycle + stock receiving
-│   ├── 🔄 ReturnService.cs           # Credit notes + stock restoration
-│   ├── 📊 ReportService.cs           # Report queries (7 report types)
-│   ├── 📄 PdfExportService.cs        # PDF generation (QuestPDF)
-│   ├── 🖨️ ThermalPrintService.cs     # ESC/POS thermal receipt printing
-│   ├── 📧 EmailService.cs            # SMTP email (invoices, POs, reports)
-│   ├── 📥 ExcelImportService.cs      # Excel import (products, categories, suppliers)
-│   └── 💳 PaymentGatewayService.cs   # Payment gateway config CRUD
-│
-├── 📁 Views/                           # 34 XAML views + code-behind
-│   ├── 🛒 PosView                     # Point of Sale screen
-│   ├── 📑 InvoicesView                # Invoice listing
-│   ├── 📑 InvoiceHistoryView          # Invoice history browser
-│   ├── 🧾 ReceiptView                 # Receipt display + share (print, email, WhatsApp)
-│   ├── ⏸️ HeldOrdersView              # Held/paused transactions
-│   ├── 📦 InventoryView               # Inventory tab container (9 sub-tabs)
-│   ├── 📦 InventoryProductsView       # Product management
-│   ├── 🏷️ InventoryCategoriesView     # Category management
-│   ├── 📏 InventoryUnitsView          # Unit management
-│   ├── 🏭 InventorySuppliersView      # Supplier management
-│   ├── 📊 InventoryStockView          # Stock levels
-│   ├── 📊 InventoryStockAdjustView    # Stock adjustments
-│   ├── 👥 CustomersView               # Customer database
-│   ├── 📋 PurchaseOrdersView          # Purchase order management
-│   ├── 🔄 ReturnsView                 # Returns & credit notes
-│   ├── 📊 DataManagementView          # Reports dashboard
-│   ├── ⚙️ SettingsView                # Settings tab container
-│   ├── ⚙️ SettingsGeneralView         # General settings
-│   ├── 🏢 BusinessDetailsView         # Business profile editor
-│   ├── 🧾 SettingsTaxView             # Tax slab configuration
-│   ├── 📧 SettingsEmailView           # Email/SMTP settings
-│   ├── 💳 SettingsPaymentView         # Payment gateway settings
-│   ├── 💾 SettingsBackupView          # Backup & restore
-│   ├── 🛡️ RolesAccessView            # Roles & permissions
-│   ├── 👤 ProfileView                 # User profile
-│   └── 📁 Dialogs                     # EmailInputDialog, PhoneInputDialog, ThermalPrinterDialog
-│
-├── 📁 Helpers/                         # Utility classes
-│   ├── 🗄️ DatabaseHelper.cs           # Dapper wrapper + connection management + offline mode
-│   ├── 🔑 Session.cs                  # Static session state (user, tenant, permissions)
-│   └── ⚙️ AppConfig.cs               # Configuration loader
-│
-├── 📁 ViewModels/                      # MVVM support
-│   └── MainViewModel.cs               # Main window view model
-│
-├── 📁 installer/                       # Windows installer
-│   ├── 📜 OpenPOS.iss                 # Inno Setup script
-│   ├── 📜 schema.sql                  # Full database schema (22KB)
-│   ├── 📜 setup-db.bat               # Database initialization script
-│   └── 📜 build-installer.ps1        # Build automation (publish + Inno Setup)
-│
-├── 📄 MainWindow.xaml/.cs             # App shell + sidebar navigation + keyboard shortcuts
-├── 📄 LoginWindow.xaml/.cs            # Login screen
-├── 📄 RegisterWindow.xaml/.cs         # Registration screen
-├── 📄 ShopPickerWindow.xaml/.cs       # Multi-shop selector
-├── 📄 appsettings.json                # App configuration
-├── 📄 migration.sql                   # Database migrations
-└── 📄 MyWinFormsApp.csproj            # .NET project file
+|
+|-- Models/                          # 25 data model classes
+|   |-- User.cs                     # User accounts
+|   |-- Tenant.cs                   # Business/shop entities
+|   |-- UserTenant.cs               # User-shop-role mapping
+|   |-- Role.cs                     # Role definitions
+|   |-- RolePermission.cs           # Module permissions
+|   |-- Module.cs                   # Application modules
+|   |-- BusinessDetails.cs          # Business profile + banking + UPI
+|   |-- Category.cs                 # Product categories
+|   |-- Unit.cs                     # Units of measurement
+|   |-- Supplier.cs                 # Supplier directory
+|   |-- TaxSlab.cs                  # Tax rates with components
+|   |-- Product.cs                  # Product catalog
+|   |-- Invoice.cs                  # Sales transactions
+|   |-- InvoiceItem.cs              # Invoice line items
+|   |-- CartItem.cs                 # POS cart (INotifyPropertyChanged)
+|   |-- StockMovement.cs            # Stock audit trail
+|   |-- Customer.cs                 # Customer database
+|   |-- PurchaseOrder.cs            # Purchase orders
+|   |-- PurchaseOrderItem.cs        # PO line items
+|   |-- CreditNote.cs              # Return credit notes
+|   |-- CreditNoteItem.cs          # Credit note line items
+|   |-- EmailSettings.cs            # SMTP configuration
+|   |-- PaymentGatewaySettings.cs   # Payment gateway config
+|
+|-- Services/                        # 15 static service classes
+|   |-- AuthService.cs              # Login, register, session management
+|   |-- RoleService.cs              # Roles, permissions, user management
+|   |-- BusinessService.cs          # Business details CRUD
+|   |-- InventoryService.cs         # Products, categories, units, suppliers, stock
+|   |-- TaxService.cs              # Tax slab management + country defaults
+|   |-- SalesService.cs            # Invoicing, hold/resume, cancellation
+|   |-- CustomerService.cs          # Customer CRUD + search
+|   |-- PurchaseOrderService.cs     # PO lifecycle + stock receiving
+|   |-- ReturnService.cs           # Credit notes + stock restoration
+|   |-- ReportService.cs           # Report queries (7 report types)
+|   |-- PdfExportService.cs        # PDF generation (QuestPDF)
+|   |-- ThermalPrintService.cs     # ESC/POS thermal receipt printing
+|   |-- EmailService.cs            # SMTP email (invoices, POs, reports)
+|   |-- ExcelImportService.cs      # Excel import (products, categories, suppliers)
+|   |-- PaymentGatewayService.cs   # Payment gateway config CRUD
+|
+|-- Views/                           # 34 XAML views + code-behind
+|   |-- PosView                     # Point of Sale screen
+|   |-- InvoicesView                # Invoice listing
+|   |-- InvoiceHistoryView          # Invoice history browser
+|   |-- ReceiptView                 # Receipt display + share (print, email, WhatsApp)
+|   |-- HeldOrdersView              # Held/paused transactions
+|   |-- InventoryView               # Inventory tab container (9 sub-tabs)
+|   |-- InventoryProductsView       # Product management
+|   |-- InventoryCategoriesView     # Category management
+|   |-- InventoryUnitsView          # Unit management
+|   |-- InventorySuppliersView      # Supplier management
+|   |-- InventoryStockView          # Stock levels
+|   |-- InventoryStockAdjustView    # Stock adjustments
+|   |-- CustomersView               # Customer database
+|   |-- PurchaseOrdersView          # Purchase order management
+|   |-- ReturnsView                 # Returns and credit notes
+|   |-- DataManagementView          # Reports dashboard
+|   |-- SettingsView                # Settings tab container
+|   |-- SettingsGeneralView         # General settings
+|   |-- BusinessDetailsView         # Business profile editor
+|   |-- SettingsTaxView             # Tax slab configuration
+|   |-- SettingsEmailView           # Email/SMTP settings
+|   |-- SettingsPaymentView         # Payment gateway settings
+|   |-- SettingsBackupView          # Backup and restore
+|   |-- RolesAccessView            # Roles and permissions
+|   |-- ProfileView                 # User profile
+|   |-- Dialogs/                    # EmailInputDialog, PhoneInputDialog, ThermalPrinterDialog
+|
+|-- Helpers/                         # Utility classes
+|   |-- DatabaseHelper.cs           # Dapper wrapper + connection management + offline mode
+|   |-- Session.cs                  # Static session state (user, tenant, permissions)
+|   |-- AppConfig.cs               # Configuration loader
+|
+|-- ViewModels/                      # MVVM support
+|   |-- MainViewModel.cs           # Main window view model
+|
+|-- installer/                       # Windows installer
+|   |-- OpenPOS.iss                 # Inno Setup script
+|   |-- schema.sql                  # Full database schema (22KB)
+|   |-- setup-db.bat               # Database initialization script
+|   |-- build-installer.ps1        # Build automation (publish + Inno Setup)
+|
+|-- MainWindow.xaml/.cs             # App shell + sidebar navigation + keyboard shortcuts
+|-- LoginWindow.xaml/.cs            # Login screen
+|-- RegisterWindow.xaml/.cs         # Registration screen
+|-- ShopPickerWindow.xaml/.cs       # Multi-shop selector
+|-- appsettings.json                # App configuration
+|-- migration.sql                   # Database migrations
+|-- MyWinFormsApp.csproj            # .NET project file
 ```
 
 ### Multi-Tenant Architecture
@@ -495,25 +495,25 @@ openpos/
 OpenPOS uses a **shared database, tenant-isolated** architecture. Every piece of business data is scoped by `tenant_id`, enabling complete data isolation between shops:
 
 ```
-┌──────────────────────────────────────────────────────────────┐
-│                     USER REGISTRATION                        │
-│                                                              │
-│  User signs up  ──→  Tenant (Shop) auto-created             │
-│                        │                                     │
-│                        ├── user_tenants (role: Admin)        │
-│                        │                                     │
-│                        ▼                                     │
-│              ┌─────────────────────┐                         │
-│              │   ALL DATA SCOPED   │                         │
-│              │    BY tenant_id     │                         │
-│              └─────────┬───────────┘                         │
-│                        │                                     │
-│     ┌──────────┬───────┼───────┬──────────┬──────────┐       │
-│     ▼          ▼       ▼       ▼          ▼          ▼       │
-│  Products  Invoices  Tax    Suppliers  Customers  Settings   │
-│  Categories  Items   Slabs   Stock     POs        Email      │
-│  Units       Cart           Movements  Returns    Payment    │
-└──────────────────────────────────────────────────────────────┘
++--------------------------------------------------------------+
+|                     USER REGISTRATION                        |
+|                                                              |
+|  User signs up  -->  Tenant (Shop) auto-created              |
+|                        |                                     |
+|                        +-- user_tenants (role: Admin)        |
+|                        |                                     |
+|                        v                                     |
+|              +---------------------+                         |
+|              |   ALL DATA SCOPED   |                         |
+|              |    BY tenant_id     |                         |
+|              +---------+-----------+                         |
+|                        |                                     |
+|     +----------+-------+-------+----------+----------+       |
+|     v          v       v       v          v          v       |
+|  Products  Invoices  Tax    Suppliers  Customers  Settings   |
+|  Categories  Items   Slabs   Stock     POs        Email      |
+|  Units       Cart           Movements  Returns    Payment    |
++--------------------------------------------------------------+
 
   User can belong to MULTIPLE tenants (shops) with different roles
 ```
@@ -521,24 +521,24 @@ OpenPOS uses a **shared database, tenant-isolated** architecture. Every piece of
 ### Data Flow
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                          POS WORKFLOW                            │
-│                                                                 │
-│  POS View ──→ SalesService ──→ DatabaseHelper ──→ PostgreSQL    │
-│     │              │                                            │
-│     │              ├── Creates Invoice + InvoiceItems            │
-│     │              ├── Deducts product stock                     │
-│     │              ├── Records stock movements                   │
-│     │              └── Returns complete Invoice data             │
-│     │                        │                                  │
-│     ▼                        ▼                                  │
-│  ReceiptView         PdfExportService ──→ QuestPDF ──→ PDF      │
-│     │                        │                                  │
-│     ├── Print ──→ Windows Print Dialog                          │
-│     ├── Thermal ──→ ThermalPrintService ──→ ESC/POS ──→ Printer │
-│     ├── Email ──→ EmailService ──→ SMTP ──→ Email + PDF         │
-│     └── WhatsApp ──→ Browser ──→ wa.me deep link                │
-└─────────────────────────────────────────────────────────────────┘
++-------------------------------------------------------------+
+|                          POS WORKFLOW                        |
+|                                                             |
+|  POS View --> SalesService --> DatabaseHelper --> PostgreSQL |
+|     |              |                                        |
+|     |              +-- Creates Invoice + InvoiceItems       |
+|     |              +-- Deducts product stock                |
+|     |              +-- Records stock movements              |
+|     |              +-- Returns complete Invoice data        |
+|     |                        |                              |
+|     v                        v                              |
+|  ReceiptView         PdfExportService --> QuestPDF --> PDF  |
+|     |                        |                              |
+|     +-- Print --> Windows Print Dialog                      |
+|     +-- Thermal --> ThermalPrintService --> ESC/POS         |
+|     +-- Email --> EmailService --> SMTP --> Email + PDF      |
+|     +-- WhatsApp --> Browser --> wa.me deep link             |
++-------------------------------------------------------------+
 ```
 
 ### Service Layer
@@ -589,24 +589,23 @@ public class Invoice
     {
         "CASH" => "Cash", "UPI" => "UPI", "CARD" => "Card", _ => PaymentMethod
     };
-    public string FormattedTotal => $"₹{TotalAmount:N2}";
 }
 ```
 
 ---
 
-## 🗄 Database Schema
+## Database Schema
 
 OpenPOS uses **PostgreSQL** with **22+ tables** organized into logical groups:
 
-### Core Tables (Authentication & Authorization)
+### Core Tables (Authentication and Authorization)
 
 | Table | Columns | Description |
 |-------|---------|-------------|
 | `roles` | id, name | Role definitions (Admin, Cashier) |
 | `users` | id, full_name, email, password_hash, is_active, created_at | User accounts with BCrypt passwords |
 | `tenants` | id, name, is_active, created_at | Business/shop entities |
-| `user_tenants` | id, user_id, tenant_id, role_id, is_active, created_at | User → Shop → Role mapping |
+| `user_tenants` | id, user_id, tenant_id, role_id, is_active, created_at | User to Shop to Role mapping |
 | `modules` | id, name, key, icon, sort_order, is_active | Feature modules (POS, Inventory, etc.) |
 | `role_permissions` | id, role_id, module_id, tenant_id | Permission matrix |
 
@@ -645,30 +644,30 @@ OpenPOS uses **PostgreSQL** with **22+ tables** organized into logical groups:
 ### Entity Relationship Overview
 
 ```
-tenants (1) ──── (*) products ──── (1) categories
-    │                  │
-    │                  ├──── (1) tax_slabs
-    │                  ├──── (1) units
-    │                  └──── (1) suppliers
-    │
-    ├──── (*) invoices ──── (*) invoice_items
-    │           │
-    │           └──── (1) users (created_by)
-    │
-    ├──── (*) purchase_orders ──── (*) purchase_order_items
-    │
-    ├──── (*) credit_notes ──── (*) credit_note_items
-    │
-    ├──── (*) customers
-    ├──── (*) stock_movements
-    ├──── (1) business_details
-    ├──── (1) email_settings
-    └──── (1) payment_gateway_settings
+tenants (1) ---- (*) products ---- (1) categories
+    |                  |
+    |                  +---- (1) tax_slabs
+    |                  +---- (1) units
+    |                  +---- (1) suppliers
+    |
+    +---- (*) invoices ---- (*) invoice_items
+    |           |
+    |           +---- (1) users (created_by)
+    |
+    +---- (*) purchase_orders ---- (*) purchase_order_items
+    |
+    +---- (*) credit_notes ---- (*) credit_note_items
+    |
+    +---- (*) customers
+    +---- (*) stock_movements
+    +---- (1) business_details
+    +---- (1) email_settings
+    +---- (1) payment_gateway_settings
 ```
 
 ---
 
-## ⚙ Configuration
+## Configuration
 
 ### appsettings.json
 
@@ -699,10 +698,10 @@ tenants (1) ──── (*) products ──── (1) categories
 
 | Currency | Symbol | Code |
 |----------|--------|------|
-| Indian Rupee | ₹ | INR |
+| Indian Rupee | INR | INR |
 | US Dollar | $ | USD |
-| Euro | € | EUR |
-| British Pound | £ | GBP |
+| Euro | EUR | EUR |
+| British Pound | GBP | GBP |
 | Australian Dollar | A$ | AUD |
 | Canadian Dollar | C$ | CAD |
 | *Custom* | *Any* | *Any* |
@@ -710,7 +709,7 @@ tenants (1) ──── (*) products ──── (1) categories
 ### Pre-seeded Tax Slabs by Country
 
 <details>
-<summary><strong>🇮🇳 India (GST)</strong></summary>
+<summary><strong>India (GST)</strong></summary>
 
 | Slab | Rate | Components |
 |------|------|------------|
@@ -723,7 +722,7 @@ tenants (1) ──── (*) products ──── (1) categories
 </details>
 
 <details>
-<summary><strong>🇺🇸 USA, 🇬🇧 UK, 🇨🇦 Canada, 🇦🇺 Australia</strong></summary>
+<summary><strong>USA, UK, Canada, Australia</strong></summary>
 
 Country-specific default tax slabs are auto-seeded based on the business country setting.
 
@@ -731,7 +730,7 @@ Country-specific default tax slabs are auto-seeded based on the business country
 
 ---
 
-## 📄 PDF Reports
+## PDF Reports
 
 All PDFs are generated using **QuestPDF** with consistent professional formatting:
 
@@ -767,13 +766,13 @@ All PDFs are generated using **QuestPDF** with consistent professional formattin
 |---------|---------|
 | Teal Color Theme | Distinguished from invoices (blue) |
 | Supplier Section | Name, contact person, email, phone, address, GST |
-| Items Table | 6 columns: #, Product, Qty, Unit Price, **Tax**, Total |
+| Items Table | 6 columns: #, Product, Qty, Unit Price, Tax, Total |
 | Tax Per Item | Shows rate% and calculated amount |
 | Status Badge | Draft / Ordered / Received |
 
 ---
 
-## 📥 Excel Import
+## Excel Import
 
 Bulk import data from `.xlsx` files with automatic duplicate detection.
 
@@ -821,7 +820,7 @@ Bulk import data from `.xlsx` files with automatic duplicate detection.
 
 ---
 
-## 📦 Installation
+## Installation
 
 ### Option 1: Windows Installer (Recommended)
 
@@ -873,7 +872,7 @@ This auto-detects PostgreSQL installation, creates the database, and runs the sc
 
 ---
 
-## 🔧 Troubleshooting
+## Troubleshooting
 
 <details>
 <summary><strong>Application won't start / database connection error</strong></summary>
@@ -888,7 +887,7 @@ This auto-detects PostgreSQL installation, creates the database, and runs the sc
 <details>
 <summary><strong>Email sending fails</strong></summary>
 
-1. Go to Settings → Email and verify SMTP settings
+1. Go to Settings > Email and verify SMTP settings
 2. For Gmail: use an [App Password](https://support.google.com/accounts/answer/185833) (not your regular password)
 3. Click "Test Email" to verify configuration
 4. Check that "Enable Email" toggle is on
@@ -900,7 +899,7 @@ This auto-detects PostgreSQL installation, creates the database, and runs the sc
 
 1. Ensure the printer is connected via USB and powered on
 2. Install the printer's Windows driver
-3. Verify it appears in Windows Settings → Printers & Scanners
+3. Verify it appears in Windows Settings > Printers and Scanners
 4. Try both 80mm and 58mm paper width options
 
 </details>
@@ -926,9 +925,9 @@ This auto-detects PostgreSQL installation, creates the database, and runs the sc
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
-Contributions are welcome! OpenPOS is open-source and we'd love your help.
+Contributions are welcome. OpenPOS is open-source and community-driven.
 
 ### How to Contribute
 
@@ -949,9 +948,9 @@ Contributions are welcome! OpenPOS is open-source and we'd love your help.
 
 ---
 
-## 📄 License
+## License
 
-This project is licensed under the **MIT License** — you're free to use, modify, and distribute it.
+This project is licensed under the **MIT License** — you are free to use, modify, and distribute it.
 
 See the [LICENSE](LICENSE) file for details.
 
@@ -973,6 +972,6 @@ See the [LICENSE](LICENSE) file for details.
 
 <br />
 
-**If you find OpenPOS useful, please give it a ⭐ on GitHub!**
+**If you find OpenPOS useful, please consider starring the repository on GitHub.**
 
 </div>
