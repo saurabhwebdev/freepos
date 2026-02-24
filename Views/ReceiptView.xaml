@@ -38,6 +38,16 @@
                             <TextBlock Text="Print" VerticalAlignment="Center"/>
                         </StackPanel>
                     </Button>
+                    <Button Click="BtnThermalPrint_Click"
+                            Padding="12,6" Height="34" FontSize="12"
+                            Background="#7C3AED" Foreground="White" BorderThickness="0"
+                            Margin="0,0,8,0">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="PrinterPos" Width="16" Height="16"
+                                                      VerticalAlignment="Center" Margin="0,0,6,0"/>
+                            <TextBlock Text="Thermal" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
                     <Button Click="BtnEmailInvoice_Click"
                             Style="{StaticResource MaterialDesignOutlinedButton}"
                             Margin="0,0,8,0" Padding="12,6" Height="34" FontSize="12">

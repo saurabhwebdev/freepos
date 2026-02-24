@@ -1,0 +1,43 @@
+<Window x:Class="MyWinFormsApp.Views.ThermalPrinterDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Thermal Print" Height="300" Width="420"
+        WindowStartupLocation="CenterOwner" ResizeMode="NoResize"
+        Background="{DynamicResource MaterialDesign.Brush.Background}"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        FontFamily="{materialDesign:MaterialDesignFont}">
+
+    <StackPanel Margin="24">
+        <TextBlock Text="Thermal Receipt Printer" FontSize="16" FontWeight="SemiBold" Margin="0,0,0,4"/>
+        <TextBlock Text="Select a printer and paper size to print the receipt."
+                   FontSize="11" Opacity="0.5" Margin="0,0,0,16"/>
+
+        <!-- Printer Selection -->
+        <TextBlock Text="Printer" FontSize="12" Margin="0,0,0,4"/>
+        <ComboBox x:Name="CboPrinter" FontSize="14"
+                  Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                  Margin="0,0,0,16"/>
+
+        <!-- Paper Width -->
+        <TextBlock Text="Paper Width" FontSize="12" Margin="0,0,0,8"/>
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+            <RadioButton x:Name="Rb80mm" Content="80mm (standard)" IsChecked="True"
+                         GroupName="PaperWidth" Margin="0,0,24,0"
+                         Style="{StaticResource MaterialDesignRadioButton}"/>
+            <RadioButton x:Name="Rb58mm" Content="58mm (narrow)"
+                         GroupName="PaperWidth"
+                         Style="{StaticResource MaterialDesignRadioButton}"/>
+        </StackPanel>
+
+        <!-- Buttons -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Cancel" Click="BtnCancel_Click"
+                    Style="{StaticResource MaterialDesignFlatButton}"
+                    Margin="0,0,8,0" Height="36"/>
+            <Button Content="Print" Click="BtnPrint_Click"
+                    Height="36" Padding="20,6"
+                    Background="#7C3AED" Foreground="White" BorderThickness="0"/>
+        </StackPanel>
+    </StackPanel>
+</Window>

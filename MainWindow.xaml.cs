@@ -27,6 +27,25 @@ public partial class MainWindow : Window
         _settingsView.DataContext = DataContext;
         ContentArea.Content = _posView;
         LoadUserInfo();
+
+        // Monitor DB connection status
+        DatabaseHelper.ConnectionStatusChanged += (connected) =>
+        {
+            Dispatcher.Invoke(() =>
+            {
+                if (connected)
+                {
+                    DbStatusBadge.Visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    DbStatusBadge.Background = new System.Windows.Media.SolidColorBrush(
+                        System.Windows.Media.Color.FromRgb(239, 68, 68));
+                    TxtDbStatus.Text = "Offline";
+                    DbStatusBadge.Visibility = Visibility.Visible;
+                }
+            });
+        };
     }
 
     private void LoadUserInfo()
@@ -113,6 +132,56 @@ public partial class MainWindow : Window
                 icon.Margin = iconMargin;
         }
     }
+
+    #region Keyboard Shortcuts
+
+    private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+    {
+        // Don't handle shortcuts when typing in text fields
+        if (e.OriginalSource is System.Windows.Controls.TextBox || e.OriginalSource is System.Windows.Controls.PasswordBox)
+        {
+            // F-keys still work in text fields
+            if (e.Key is not (Key.F1 or Key.F2 or Key.F3 or Key.F4 or Key.F5 or Key.F6 or Key.F7 or Key.F8 or Key.Escape))
+                return;
+        }
+
+        switch (e.Key)
+        {
+            case Key.F1: // POS
+                NavList.SelectedIndex = 0;
+                e.Handled = true;
+                break;
+            case Key.F2: // Invoices
+                NavList.SelectedIndex = 1;
+                e.Handled = true;
+                break;
+            case Key.F3: // Inventory
+                NavList.SelectedIndex = 2;
+                e.Handled = true;
+                break;
+            case Key.F4: // Reports
+                NavList.SelectedIndex = 3;
+                e.Handled = true;
+                break;
+            case Key.F5: // Profile
+                NavList.SelectedIndex = 4;
+                e.Handled = true;
+                break;
+            case Key.F6: // Settings
+                NavList.SelectedIndex = 5;
+                e.Handled = true;
+                break;
+            case Key.Escape: // Close modal
+                if (ModalOverlayContainer.Visibility == Visibility.Visible)
+                {
+                    _modalCloseCallback?.Invoke();
+                    e.Handled = true;
+                }
+                break;
+        }
+    }
+
+    #endregion
 
     #region Global Modal Overlay
 

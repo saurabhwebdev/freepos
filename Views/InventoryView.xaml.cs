@@ -10,13 +10,17 @@ public partial class InventoryView : UserControl
     private InventoryStockView? _stockView;
     private InventoryUnitsView? _unitsView;
     private InventorySuppliersView? _suppliersView;
+    private CustomersView? _customersView;
+    private ReturnsView? _returnsView;
+    private PurchaseOrdersView? _purchaseOrdersView;
+    private InventoryStockAdjustView? _stockAdjustView;
 
     private Button[] _tabButtons = [];
 
     public InventoryView()
     {
         InitializeComponent();
-        _tabButtons = [BtnTabProducts, BtnTabCategories, BtnTabStock, BtnTabUnits, BtnTabSuppliers];
+        _tabButtons = [BtnTabProducts, BtnTabCategories, BtnTabStock, BtnTabUnits, BtnTabSuppliers, BtnTabCustomers, BtnTabReturns, BtnTabStockAdjust, BtnTabPO];
         ShowTab("products");
     }
 
@@ -25,6 +29,10 @@ public partial class InventoryView : UserControl
     private void BtnTabStock_Click(object sender, RoutedEventArgs e) => ShowTab("stock");
     private void BtnTabUnits_Click(object sender, RoutedEventArgs e) => ShowTab("units");
     private void BtnTabSuppliers_Click(object sender, RoutedEventArgs e) => ShowTab("suppliers");
+    private void BtnTabCustomers_Click(object sender, RoutedEventArgs e) => ShowTab("customers");
+    private void BtnTabReturns_Click(object sender, RoutedEventArgs e) => ShowTab("returns");
+    private void BtnTabStockAdjust_Click(object sender, RoutedEventArgs e) => ShowTab("stockadjust");
+    private void BtnTabPO_Click(object sender, RoutedEventArgs e) => ShowTab("po");
 
     private void ShowTab(string tab)
     {
@@ -65,6 +73,30 @@ public partial class InventoryView : UserControl
                 InventoryContent.Content = _suppliersView;
                 BtnTabSuppliers.FontWeight = FontWeights.Bold;
                 BtnTabSuppliers.Opacity = 1.0;
+                break;
+            case "customers":
+                _customersView ??= new CustomersView();
+                InventoryContent.Content = _customersView;
+                BtnTabCustomers.FontWeight = FontWeights.Bold;
+                BtnTabCustomers.Opacity = 1.0;
+                break;
+            case "returns":
+                _returnsView ??= new ReturnsView();
+                InventoryContent.Content = _returnsView;
+                BtnTabReturns.FontWeight = FontWeights.Bold;
+                BtnTabReturns.Opacity = 1.0;
+                break;
+            case "stockadjust":
+                _stockAdjustView ??= new InventoryStockAdjustView();
+                InventoryContent.Content = _stockAdjustView;
+                BtnTabStockAdjust.FontWeight = FontWeights.Bold;
+                BtnTabStockAdjust.Opacity = 1.0;
+                break;
+            case "po":
+                _purchaseOrdersView ??= new PurchaseOrdersView();
+                InventoryContent.Content = _purchaseOrdersView;
+                BtnTabPO.FontWeight = FontWeights.Bold;
+                BtnTabPO.Opacity = 1.0;
                 break;
         }
     }

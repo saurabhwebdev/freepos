@@ -11,13 +11,14 @@ public partial class SettingsView : UserControl
     private SettingsTaxView? _taxView;
     private SettingsEmailView? _emailView;
     private SettingsPaymentView? _paymentView;
+    private SettingsBackupView? _backupView;
 
     private Button[] _tabButtons = [];
 
     public SettingsView()
     {
         InitializeComponent();
-        _tabButtons = [BtnTabGeneral, BtnTabBusiness, BtnTabRoles, BtnTabTax, BtnTabEmail, BtnTabPayment];
+        _tabButtons = [BtnTabGeneral, BtnTabBusiness, BtnTabRoles, BtnTabTax, BtnTabEmail, BtnTabPayment, BtnTabBackup];
         ShowTab("general");
     }
 
@@ -27,6 +28,7 @@ public partial class SettingsView : UserControl
     private void BtnTabTax_Click(object sender, RoutedEventArgs e) => ShowTab("tax");
     private void BtnTabEmail_Click(object sender, RoutedEventArgs e) => ShowTab("email");
     private void BtnTabPayment_Click(object sender, RoutedEventArgs e) => ShowTab("payment");
+    private void BtnTabBackup_Click(object sender, RoutedEventArgs e) => ShowTab("backup");
 
     private void ShowTab(string tab)
     {
@@ -74,6 +76,12 @@ public partial class SettingsView : UserControl
                 SettingsContent.Content = _paymentView;
                 BtnTabPayment.FontWeight = FontWeights.Bold;
                 BtnTabPayment.Opacity = 1.0;
+                break;
+            case "backup":
+                _backupView ??= new SettingsBackupView();
+                SettingsContent.Content = _backupView;
+                BtnTabBackup.FontWeight = FontWeights.Bold;
+                BtnTabBackup.Opacity = 1.0;
                 break;
         }
     }

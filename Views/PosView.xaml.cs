@@ -156,6 +156,22 @@ public partial class PosView : UserControl
 
     private async void TxtSearch_TextChanged(object sender, TextChangedEventArgs e)
     {
+        var searchText = TxtSearch.Text?.Trim();
+
+        // Barcode scanner support: if text matches a product barcode exactly, auto-add to cart
+        if (!string.IsNullOrEmpty(searchText) && searchText.Length >= 3)
+        {
+            var barcodeMatch = _allProducts.FirstOrDefault(p =>
+                !string.IsNullOrEmpty(p.Barcode) && p.Barcode.Equals(searchText, StringComparison.OrdinalIgnoreCase));
+
+            if (barcodeMatch != null)
+            {
+                AddToCart(barcodeMatch);
+                TxtSearch.Text = "";
+                return;
+            }
+        }
+
         await LoadProductsAsync();
     }
 

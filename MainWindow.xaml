@@ -10,7 +10,8 @@
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="14"
-        FontFamily="{materialDesign:MaterialDesignFont}">
+        FontFamily="{materialDesign:MaterialDesignFont}"
+        PreviewKeyDown="Window_PreviewKeyDown">
 
     <Window.DataContext>
         <vm:MainViewModel/>
@@ -31,6 +32,14 @@
                     </Button>
                     <TextBlock Text="FreePOS" FontSize="20" FontWeight="Medium"
                                VerticalAlignment="Center"/>
+                    <!-- DB Connection Status -->
+                    <Border x:Name="DbStatusBadge" CornerRadius="8" Padding="6,2" Margin="10,0,0,0"
+                            VerticalAlignment="Center" Background="#4CAF50" Visibility="Collapsed">
+                        <StackPanel Orientation="Horizontal">
+                            <Ellipse x:Name="DbStatusDot" Width="8" Height="8" Fill="White" Margin="0,0,4,0"/>
+                            <TextBlock x:Name="TxtDbStatus" Text="Offline" FontSize="10" Foreground="White" FontWeight="SemiBold"/>
+                        </StackPanel>
+                    </Border>
                 </StackPanel>
 
                 <StackPanel DockPanel.Dock="Right" Orientation="Horizontal"

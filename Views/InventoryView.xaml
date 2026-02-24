@@ -33,7 +33,23 @@
                         Margin="0,0,4,0"/>
                 <Button x:Name="BtnTabSuppliers" Content="Suppliers"
                         Style="{StaticResource MaterialDesignFlatButton}"
-                        Click="BtnTabSuppliers_Click" FontSize="14" Padding="16,8"/>
+                        Click="BtnTabSuppliers_Click" FontSize="14" Padding="16,8"
+                        Margin="0,0,4,0"/>
+                <Button x:Name="BtnTabCustomers" Content="Customers"
+                        Style="{StaticResource MaterialDesignFlatButton}"
+                        Click="BtnTabCustomers_Click" FontSize="14" Padding="16,8"
+                        Margin="0,0,4,0"/>
+                <Button x:Name="BtnTabReturns" Content="Returns"
+                        Style="{StaticResource MaterialDesignFlatButton}"
+                        Click="BtnTabReturns_Click" FontSize="14" Padding="16,8"
+                        Margin="0,0,4,0"/>
+                <Button x:Name="BtnTabStockAdjust" Content="Adjustments"
+                        Style="{StaticResource MaterialDesignFlatButton}"
+                        Click="BtnTabStockAdjust_Click" FontSize="14" Padding="16,8"
+                        Margin="0,0,4,0"/>
+                <Button x:Name="BtnTabPO" Content="Purchase Orders"
+                        Style="{StaticResource MaterialDesignFlatButton}"
+                        Click="BtnTabPO_Click" FontSize="14" Padding="16,8"/>
             </StackPanel>
             <Border Height="1" Background="{DynamicResource MaterialDesignDivider}"/>
         </StackPanel>

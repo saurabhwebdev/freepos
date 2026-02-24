@@ -30,4 +30,6 @@ public class StockMovement
     public string QuantityDisplay => MovementType == "OUT"
         ? $"-{Quantity:0.##}"
         : $"+{Quantity:0.##}";
+
+    public string FormattedDate => CreatedAt.ToString("dd MMM yyyy HH:mm");
 }

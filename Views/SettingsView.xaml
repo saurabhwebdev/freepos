@@ -38,7 +38,11 @@
                         Margin="0,0,4,0"/>
                 <Button x:Name="BtnTabPayment" Content="Payments"
                         Style="{StaticResource MaterialDesignFlatButton}"
-                        Click="BtnTabPayment_Click" FontSize="14" Padding="16,8"/>
+                        Click="BtnTabPayment_Click" FontSize="14" Padding="16,8"
+                        Margin="0,0,4,0"/>
+                <Button x:Name="BtnTabBackup" Content="Backup"
+                        Style="{StaticResource MaterialDesignFlatButton}"
+                        Click="BtnTabBackup_Click" FontSize="14" Padding="16,8"/>
             </StackPanel>
             <Border Height="1" Background="{DynamicResource MaterialDesignDivider}" Margin="0,0,0,0"/>
         </StackPanel>

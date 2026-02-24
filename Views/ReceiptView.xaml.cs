@@ -253,6 +253,35 @@ public partial class ReceiptView : Border
         }
     }
 
+    private void BtnThermalPrint_Click(object sender, RoutedEventArgs e)
+    {
+        try
+        {
+            var printers = ThermalPrintService.GetInstalledPrinters();
+            if (printers.Count == 0)
+            {
+                ShowShareStatus("No printers found.", false);
+                return;
+            }
+
+            // Show printer selection dialog
+            var dialog = new ThermalPrinterDialog(printers);
+            var mw = Window.GetWindow(this) as MainWindow;
+            if (mw != null) dialog.Owner = mw;
+
+            if (dialog.ShowDialog() == true && !string.IsNullOrEmpty(dialog.SelectedPrinter))
+            {
+                var (success, message) = ThermalPrintService.PrintReceipt(
+                    dialog.SelectedPrinter, _business, _invoice, _items, dialog.PaperWidth);
+                ShowShareStatus(message, success);
+            }
+        }
+        catch (Exception ex)
+        {
+            ShowShareStatus($"Thermal print error: {ex.Message}", false);
+        }
+    }
+
     private async void BtnEmailInvoice_Click(object sender, RoutedEventArgs e)
     {
         if (Session.CurrentTenant == null || _business == null) return;

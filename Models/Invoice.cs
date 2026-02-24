@@ -21,6 +21,7 @@ public class Invoice
     public string Status { get; set; } = "COMPLETED";
     public string Notes { get; set; } = string.Empty;
 
+    public int? CustomerId { get; set; }
     public int? CreatedBy { get; set; }
     public DateTime CreatedAt { get; set; }
     public DateTime UpdatedAt { get; set; }

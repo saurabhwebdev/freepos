@@ -44,12 +44,12 @@ public static class SalesService
             // Insert invoice
             invoice.Id = await connection.ExecuteScalarAsync<int>(@"
                 INSERT INTO invoices (
-                    tenant_id, invoice_number, customer_name,
+                    tenant_id, invoice_number, customer_name, customer_id,
                     subtotal, discount_type, discount_value, discount_amount, tax_amount, total_amount,
                     payment_method, amount_tendered, change_given,
                     status, notes, created_by
                 ) VALUES (
-                    @TenantId, @InvoiceNumber, @CustomerName,
+                    @TenantId, @InvoiceNumber, @CustomerName, @CustomerId,
                     @Subtotal, @DiscountType, @DiscountValue, @DiscountAmount, @TaxAmount, @TotalAmount,
                     @PaymentMethod, @AmountTendered, @ChangeGiven,
                     @Status, @Notes, @CreatedBy
